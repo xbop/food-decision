@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Should We Eat?</title>
+  <!-- Import a friendly Google Font for a soft look -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>What Should We Eat?</h1>
+      <p>A fair decision helper for couples</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Cuisine selection section -->
+    <section id="cuisine-section" class="card">
+      <h2>Step 1: Suggest Cuisines</h2>
+      <p class="section-description">
+        Each of you can enter one or more cuisines separated by commas. Use
+        the optional name fields to personalise the experience.
+      </p>
+      <div class="form-container">
+        <div class="user-input">
+          <h3>Participant 1</h3>
+          <input
+            type="text"
+            id="user1Name"
+            placeholder="Your name (optional)"
+          />
+          <textarea
+            id="user1Cuisines"
+            rows="3"
+            placeholder="Cuisines you want (e.g., sushi, pizza, Thai)"
+          ></textarea>
+        </div>
+        <div class="user-input">
+          <h3>Participant 2</h3>
+          <input
+            type="text"
+            id="user2Name"
+            placeholder="Partner's name (optional)"
+          />
+          <textarea
+            id="user2Cuisines"
+            rows="3"
+            placeholder="Cuisines they want (e.g., burgers, tacos)"
+          ></textarea>
+        </div>
+      </div>
+      <div class="method-selection">
+        <h3>How should the cuisine be selected?</h3>
+        <label>
+          <input
+            type="radio"
+            name="cuisineMethod"
+            value="random"
+            checked
+          />
+          Pure random (equal chance for any cuisine)
+        </label>
+        <label>
+          <input type="radio" name="cuisineMethod" value="serial" />
+          Serial: randomly choose one participant to decide
+        </label>
+      </div>
+      <button id="decideCuisine" class="primary-btn">Decide Cuisine</button>
+      <div id="cuisineResult" class="result"></div>
+    </section>
+
+    <!-- Restaurant selection section; hidden until a cuisine is chosen -->
+    <section id="restaurant-section" class="card" style="display: none;">
+      <h2>Step 2: Suggest Restaurants</h2>
+      <p id="chosenCuisineDisplay" class="section-description"></p>
+      <div class="form-container">
+        <div class="user-input">
+          <h3 id="restaurantUser1Label">Participant 1</h3>
+          <textarea
+            id="user1Restaurants"
+            rows="3"
+            placeholder="Restaurants you like (comma separated)"
+          ></textarea>
+        </div>
+        <div class="user-input">
+          <h3 id="restaurantUser2Label">Participant 2</h3>
+          <textarea
+            id="user2Restaurants"
+            rows="3"
+            placeholder="Restaurants they like (comma separated)"
+          ></textarea>
+        </div>
+      </div>
+      <div class="method-selection">
+        <h3>How should the restaurant be selected?</h3>
+        <label>
+          <input
+            type="radio"
+            name="restaurantMethod"
+            value="random"
+            checked
+          />
+          Pure random (equal chance for any restaurant)
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="restaurantMethod"
+            value="serial"
+          />
+          Serial: let the other participant decide
+        </label>
+      </div>
+      <button id="decideRestaurant" class="primary-btn">
+        Decide Restaurant
+      </button>
+      <div id="restaurantResult" class="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Built with love to help couples enjoy their meals together. Decisions are
+      made fairly using random selection or serial dictatorship.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
