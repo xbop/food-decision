@@ -12,7 +12,7 @@
 // Variables to remember the outcome of the cuisine stage
 let cuisineMethodSelected = 'random';
 let cuisinePickedBy = null; // 'user1' or 'user2'
-let userNames = { user1: 'Participant 1', user2: 'Participant 2' };
+let userNames = { user1: 'Partner 1', user2: 'Partner 2' };
 let chosenCuisine = '';
 
 // Utility to parse a comma separated string into an array of trimmed values
@@ -34,8 +34,8 @@ document.getElementById('decideCuisine').addEventListener('click', () => {
   // Read names and suggestions
   const name1 = document.getElementById('user1Name').value.trim();
   const name2 = document.getElementById('user2Name').value.trim();
-  userNames.user1 = name1 || 'Participant 1';
-  userNames.user2 = name2 || 'Participant 2';
+  userNames.user1 = name1 || 'Partner 1';
+  userNames.user2 = name2 || 'Partner 2';
 
   const cuisines1 = parseList(
     document.getElementById('user1Cuisines').value.trim()
@@ -86,7 +86,9 @@ document.getElementById('decideCuisine').addEventListener('click', () => {
         chosenCuisine +
         '</strong>.';
     } else {
-      chosenCuisine = pickRandom(list);
+      news = selectorName + " was chosen."
+      alert(news);
+      chosenCuisine = prompt("Enter your desired cuisine out of the following options: " + [...cuisines1, ...cuisines2]);
       resultText =
         selectorName +
         ' was randomly chosen to decide the cuisine and selected <strong>' +
@@ -158,7 +160,9 @@ document.getElementById('decideRestaurant').addEventListener('click', () => {
         finalRestaurant +
         '</strong>.';
     } else {
-      finalRestaurant = pickRandom(list);
+      news1 = deciderName + " was chosen."
+      alert(news1);
+      finalRestaurant = prompt("Enter your desired restaurant out of the following choices: " + [...restaurants1, ...restaurants2]);
       resultText =
         deciderName +
         ' was randomly chosen to decide the restaurant and selected <strong>' +
